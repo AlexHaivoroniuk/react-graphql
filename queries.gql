@@ -1,0 +1,82 @@
+# {
+#   user(id: "41") {
+#     id,
+#     firstName,
+#     company {
+#       id,
+#       name,
+#       description
+#     }
+#   }
+# }
+
+
+# {
+# 	company(id: "2") {
+#     id
+#     name
+#     description
+#     users {
+#       id
+#       firstName
+#  			age
+#       company {
+#         name
+#       }
+#     }
+#   }
+  
+# }
+
+
+
+# query findCompany {
+# 	company(id: "1") {
+#     id
+#     name
+#     description
+#   }
+# }
+
+# {
+#   apple: company(id : "1") {
+#     ...companyDetails
+#   }
+  
+#   google: company(id : "2") {
+# 		...companyDetails
+#   }
+# }
+
+# fragment companyDetails on Company {
+#   id
+#   name
+#   description
+# }
+
+
+# mutation {
+#   addUser(firstName: "Kara" age: 26, companyId: "2") { 
+#   	id
+#     firstName
+#     age
+#   }
+# }
+
+# mutation {
+#   deleteUser(id: "TE1VGLH") {
+#     id
+#   }
+# }
+
+# mutation {
+#   editUser(id: "klJBhmk", firstName: "Steve", age: 27, companyId: "1") {
+#     id
+#     firstName
+#     age
+#     company {
+#       id
+#     }
+#   }
+# }
+
