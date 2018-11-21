@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {  graphql } from 'react-apollo';
 import fetchSong from '../queries/fetchSong';
+import { Link } from 'react-router';
+import LyricCreate from './LyricCreate';
+import LyricList from './LyricList';
 
 class SongDetail extends Component {
   render() {
@@ -13,7 +16,10 @@ class SongDetail extends Component {
 
     return (
       <div>
+        <Link to="/">Back</Link>
         <h3>{song.title}</h3>
+        <LyricList lyrics={song.lyrics}></LyricList>
+        <LyricCreate songId={this.props.params.id}></LyricCreate>
       </div>
     )
   }
@@ -22,4 +28,3 @@ class SongDetail extends Component {
 export default  graphql(fetchSong, {
   options: (props) => ( { variables: { id : props.params.id } } )
 })(SongDetail);
-// export default  SongDetail;

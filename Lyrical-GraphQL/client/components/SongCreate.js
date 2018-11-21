@@ -14,7 +14,6 @@ class SongCreate extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        // console.log(this.state.title);
         this.props.mutate({
             variables: {
                 title: this.state.title
